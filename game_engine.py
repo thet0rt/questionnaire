@@ -6,7 +6,8 @@ SCORE = 0
 
 
 def get_correct_phrase() -> str:
-    correct_phrases = ['Correct!', 'True. Nice one!', 'Exactly!', 'Well done!', "Correct answer. You are awesome!"]
+    correct_phrases = ['Correct!', 'True. Nice one!', 'Exactly! When did you get so smart?',
+                       'Well done!', "Correct answer. You are awesome!"]
     return random.choice(correct_phrases)
 
 
