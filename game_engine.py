@@ -5,6 +5,12 @@ import random
 SCORE = 0
 
 
+def say_welcome_prompts():
+    print("Welcome to the Questionnaire game!")
+    print("I will be happy to ask you the questions.")
+    print("Have fun!")
+
+
 def get_correct_phrase() -> str:
     correct_phrases = ['Correct!', 'True. Nice one!', 'Exactly! When did you get so smart?',
                        'Well done!', "Correct answer. You are awesome!"]
@@ -12,7 +18,7 @@ def get_correct_phrase() -> str:
 
 
 def get_wrong_phrase() -> str:
-    wrong_phrases = ['Wrong answer', 'Wrong. You know nothing, John Snow...', 'Wrong dummy.', 'Not even close !',
+    wrong_phrases = ['Wrong answer', 'Wrong. You know nothing, John Snow...', 'Wrong, dummy.', 'Not even close !',
                      'Correct! Nah just kidding. Far from correct to be honest.']
     return random.choice(wrong_phrases)
 
@@ -84,10 +90,6 @@ def ask_questions(question_list: list) -> None:
                 print(f'{get_wrong_phrase()} Try again')
 
 
-def print_the_final_score():
+def print_the_final_score() -> None:
     print('Game over. It was nice to play with you!')
     print(f'The final score: {SCORE} points')
-
-
-class CountError(Exception):
-    pass

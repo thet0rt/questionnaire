@@ -5,6 +5,7 @@ CHEAT = False
 
 
 def main():
+    say_welcome_prompts()
     count = get_count()
     question_list = get_question(count)
     if CHEAT:
