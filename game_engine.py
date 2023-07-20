@@ -4,16 +4,19 @@ import requests
 import random
 SCORE = 0
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 
-
-def get_correct_phrase():
+def get_correct_phrase() -> str:
     correct_phrases = ['Correct!', 'True. Nice one!', 'Exactly!', 'Well done!', "Correct answer. You are awesome!"]
     return random.choice(correct_phrases)
 
 
-def add_points():
+def get_wrong_phrase() -> str:
+    wrong_phrases = ['Wrong answer', 'Wrong. You know nothing, John Snow...', 'Wrong dummy.', 'Not even close !',
+                     'Correct! Nah just kidding. Far from correct to be honest.']
+    return random.choice(wrong_phrases)
+
+
+def add_points() -> None:
     global SCORE
     SCORE += 1
     print(f'You earned 1 point. Current score: {SCORE}')
@@ -69,9 +72,9 @@ def ask_questions(question_list: list) -> None:
                 add_points()
                 break
             if i == 1:
-                print(f'Wrong answer. The correct answer was "{correct_answer}"')
+                print(f'{get_wrong_phrase()} The correct answer was "{correct_answer}"')
             else:
-                print('Wrong answer. Try again')
+                print(f'{get_wrong_phrase()} Try again')
     print(f'Game over. The final score: {SCORE} points')
 
 
