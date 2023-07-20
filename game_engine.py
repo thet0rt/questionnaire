@@ -63,7 +63,7 @@ def check_answer(user_answer: str, correct_answer: str) -> bool:
             return True
         return False
     similarity_score = fuzz.token_sort_ratio(correct_answer, user_answer)
-    if similarity_score > 60:
+    if similarity_score >= 60:
         return True
     return False
 
@@ -86,10 +86,11 @@ def ask_questions(question_list: list) -> None:
                 break
             if i == 1:
                 print(f'{get_wrong_phrase()} The correct answer was "{correct_answer}"')
+                print(f'You earned 0 points. Current score: {SCORE}')
             else:
                 print(f'{get_wrong_phrase()} Try again')
 
 
 def print_the_final_score() -> None:
     print('Game over. It was nice to play with you!')
-    print(f'The final score: {SCORE} points')
+    print(f'The final score: {SCORE} point(s)')
