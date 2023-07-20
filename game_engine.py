@@ -50,15 +50,21 @@ def get_question(question_number: int) -> list:
 
 
 def check_answer(user_answer: str, correct_answer: str) -> bool:
+    if correct_answer.isdigit():
+        if not user_answer.isdigit():
+            return False
+        if int(correct_answer) == int(user_answer):
+            return True
+        return False
     similarity_score = fuzz.token_sort_ratio(correct_answer, user_answer)
-    if similarity_score > 50:
+    if similarity_score > 60:
         return True
     return False
 
 
 def ask_questions(question_list: list) -> None:
     for question in question_list:
-        print(question.get('question'))
+        print(f"Question: {question.get('question')}")
         try:
             correct_answer = question.get('answer').lower()
             if '<i>' in correct_answer:
@@ -76,7 +82,11 @@ def ask_questions(question_list: list) -> None:
                 print(f'{get_wrong_phrase()} The correct answer was "{correct_answer}"')
             else:
                 print(f'{get_wrong_phrase()} Try again')
-    print(f'Game over. The final score: {SCORE} points')
+
+
+def print_the_final_score():
+    print('Game over. It was nice to play with you!')
+    print(f'The final score: {SCORE} points')
 
 
 class CountError(Exception):

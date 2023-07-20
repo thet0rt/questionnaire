@@ -10,6 +10,7 @@ def main():
     if CHEAT:
         pprint(question_list)
     ask_questions(question_list)
+    print_the_final_score()
 
 
 if __name__ == '__main__':
