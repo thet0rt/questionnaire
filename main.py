@@ -1,7 +1,7 @@
 from game_engine import *
 from pprint import pprint
 
-CHEAT = True
+CHEAT = False
 
 
 def main():
